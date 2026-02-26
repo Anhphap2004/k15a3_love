@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K15A3 - Đàn Em Hương Sử | Tuổi Học Trò</title>
+    <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico"">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -222,7 +223,30 @@
             </div>
             <div class="progress-label">
                 <span class="progress-pct">0%</span>
-                <span class="progress-goal">Mục tiêu: 115.000.000đ</span>
+                <span class="progress-goal">Mục tiêu: 15.000.000đ</span>
+            </div>
+        </div>
+
+        <div class="donation-summary-stats">
+            <div class="don-stat-item">
+                <span class="don-stat-icon">👥</span>
+                <span class="don-stat-num" id="donor-count">0</span>
+                <span class="don-stat-label">Người đã góp</span>
+            </div>
+            <div class="don-stat-item">
+                <span class="don-stat-icon">🌺</span>
+                <span class="don-stat-num" id="female-total">0đ</span>
+                <span class="don-stat-label">Hội Chị Em</span>
+            </div>
+            <div class="don-stat-item">
+                <span class="don-stat-icon">🛡️</span>
+                <span class="don-stat-num" id="male-total">0đ</span>
+                <span class="don-stat-label">Hội Thanh Niên</span>
+            </div>
+            <div class="don-stat-item">
+                <span class="don-stat-icon">📊</span>
+                <span class="don-stat-num" id="avg-donation">0đ</span>
+                <span class="don-stat-label">Trung bình/người</span>
             </div>
         </div>
     </div>
@@ -234,6 +258,7 @@
                 <span class="col-count">29 thành viên</span>
             </div>
             <div class="member-list-wrap" id="don-list-female"></div>
+            <div class="col-footer" id="col-footer-female"></div>
         </div>
         <div class="donation-col">
             <div class="col-header male">
@@ -241,6 +266,7 @@
                 <span class="col-count">13 thành viên</span>
             </div>
             <div class="member-list-wrap" id="don-list-male"></div>
+            <div class="col-footer" id="col-footer-male"></div>
         </div>
     </div>
 

@@ -429,13 +429,21 @@ function initDonation() {
   donationInited = true;
 
   let totalAll = 0;
+  let donorCount = 0;
+  const genderTotals = { female: 0, male: 0 };
+  const genderDonors = { female: 0, male: 0 };
+
   ['female', 'male'].forEach(gender => {
     const listEl = document.getElementById(`don-list-${gender}`);
     if (!listEl) return;
     const sorted = [...MEMBERS[gender]].sort((a, b) => b.donation - a.donation);
     listEl.innerHTML = '';
+    let genderTotal = 0;
+    let genderDonorCount = 0;
     sorted.forEach((m, idx) => {
       totalAll += m.donation;
+      genderTotal += m.donation;
+      if (m.donation > 0) { donorCount++; genderDonorCount++; }
       const rankClass = idx === 0 ? 'rank-1' : idx === 1 ? 'rank-2' : idx === 2 ? 'rank-3' : 'rank-n';
       const rankLabel = idx === 0 ? '👑' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : (idx + 1);
       const amtStr    = m.donation > 0 ? m.donation.toLocaleString('vi-VN') + 'đ' : '—';
@@ -449,10 +457,42 @@ function initDonation() {
         </div>
       `;
     });
+    genderTotals[gender] = genderTotal;
+    genderDonors[gender] = genderDonorCount;
+
+    // Column footer with subtotal
+    const footerEl = document.getElementById(`col-footer-${gender}`);
+    if (footerEl) {
+      footerEl.innerHTML = `
+        <div class="col-footer-inner">
+          <span class="col-footer-label">Tổng cộng (${genderDonorCount}/${sorted.length} người)</span>
+          <span class="col-footer-amount">${genderTotal.toLocaleString('vi-VN')}đ</span>
+        </div>
+      `;
+    }
   });
 
   animateTotal(totalAll);
   animateProgressBar(totalAll);
+
+  // Update summary stats
+  const avgDonation = donorCount > 0 ? Math.round(totalAll / donorCount) : 0;
+  animateStat('donor-count', donorCount, false);
+  animateStat('female-total', genderTotals.female, true);
+  animateStat('male-total', genderTotals.male, true);
+  animateStat('avg-donation', avgDonation, true);
+}
+
+function animateStat(elId, target, isCurrency) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  let current = 0;
+  const step = Math.max(1, Math.ceil(target / 40));
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = isCurrency ? current.toLocaleString('vi-VN') + 'đ' : current;
+    if (current >= target) clearInterval(timer);
+  }, 30);
 }
 
 function animateTotal(target) {
@@ -477,7 +517,7 @@ function animateProgressBar(total) {
     if (lbl) lbl.textContent = pct + '%';
   }, 300);
   const goalEl = document.querySelector('.progress-goal');
-  if (goalEl) goalEl.textContent = `Mục tiêu: ${(5000000).toLocaleString('vi-VN')}đ`;
+  if (goalEl) goalEl.textContent = `Mục tiêu: ${(15000000).toLocaleString('vi-VN')}đ`;
 }
 
 // ============================================

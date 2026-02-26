@@ -1001,6 +1001,82 @@ body {
     margin-top: 8px;
 }
 
+/* Donation Summary Stats */
+.donation-summary-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.don-stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 15px 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.don-stat-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.don-stat-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.don-stat-num {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1.2;
+}
+
+.don-stat-label {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Column Footer (subtotal) */
+.col-footer {
+    border-top: 2px solid rgba(212, 175, 55, 0.2);
+    padding: 0;
+}
+
+.col-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(128, 0, 0, 0.04), rgba(212, 175, 55, 0.06));
+}
+
+.col-footer-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.col-footer-amount {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
 .donation-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1661,6 +1737,24 @@ body {
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Tablet landscape & small desktop */
+@media (max-width: 1024px) {
+    .page-section {
+        padding: 30px 18px 60px;
+    }
+
+    .donation-hero {
+        padding: 40px 30px;
+    }
+
+    .members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Tablet & medium screens */
 @media (max-width: 900px) {
     .about-grid {
         grid-template-columns: 1fr;
@@ -1709,43 +1803,581 @@ body {
     .timeline-card {
         max-width: 100%;
     }
+
+    .donation-summary-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .hero-stat .num {
+        font-size: 1.6rem;
+    }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
-    .masonry-gallery {
-        column-count: 1;
+    .site-header {
+        min-height: 100svh;
+        padding: 20px 15px;
     }
 
-    .intro-photo-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 150px 150px 150px;
+    .badge-top {
+        font-size: 0.65rem;
+        padding: 5px 14px;
+        letter-spacing: 2px;
     }
 
-    .intro-showcase {
-        height: 120px;
+    .hero-logo {
+        width: 80px;
+        height: 80px;
     }
 
-    .members-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3.5rem);
     }
 
-    .member-card {
-        height: 260px;
+    .hero-subtitle {
+        font-size: clamp(0.85rem, 3vw, 1.1rem);
+        padding: 0 10px;
     }
 
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-teacher {
+        font-size: 0.82rem;
+        padding: 8px 18px;
+    }
+
+    .hero-stats {
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .hero-stat .num {
+        font-size: 1.4rem;
+    }
+
+    .hero-stat .lbl {
+        font-size: 0.65rem;
+    }
+
+    .orbit-photo {
+        display: none;
+    }
+
+    /* Navigation */
+    .nav-sticky {
+        position: sticky;
+        top: 0;
     }
 
     .nav-inner {
         gap: 4px;
         overflow-x: auto;
         justify-content: flex-start;
-        padding: 8px 15px;
+        padding: 8px 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .nav-inner::-webkit-scrollbar {
+        display: none;
     }
 
     .tab-btn {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        gap: 5px;
+        flex-shrink: 0;
+    }
+
+    .tab-btn .tab-icon {
+        font-size: 1rem;
+    }
+
+    /* Sections */
+    .page-section {
+        padding: 25px 12px 60px;
+    }
+
+    .section-header {
+        margin-bottom: 30px;
+    }
+
+    .section-label {
+        font-size: 0.62rem;
+        letter-spacing: 2px;
+        padding: 4px 14px;
+    }
+
+    .section-title {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+
+    .section-desc {
+        font-size: 0.88rem;
+        padding: 0 5px;
+        margin-top: 15px;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        padding: 20px 12px;
+        border-radius: var(--radius-sm);
+    }
+
+    .stat-card .stat-icon {
+        font-size: 2rem;
+    }
+
+    .stat-card .stat-num {
+        font-size: 2rem;
+    }
+
+    .stat-card .stat-name {
+        font-size: 0.72rem;
+    }
+
+    /* About & Teacher */
+    .about-card {
+        padding: 25px 20px;
+        border-radius: var(--radius-sm);
+    }
+
+    .about-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .about-card .info-row {
+        font-size: 0.82rem;
+        padding: 10px 0;
+    }
+
+    .teacher-card {
+        padding: 30px 25px;
+        border-radius: var(--radius-sm);
+    }
+
+    .teacher-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .teacher-avatar {
+        width: 85px;
+        height: 85px;
+    }
+
+    /* Timeline */
+    .timeline {
+        margin-bottom: 30px;
+    }
+
+    .timeline::before {
+        left: 15px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        padding-left: 40px;
+        padding-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .timeline-dot {
+        left: 15px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-card {
+        padding: 15px 18px;
+        border-radius: var(--radius-sm);
+    }
+
+    .timeline-card .year {
+        font-size: 0.68rem;
+    }
+
+    .timeline-card h4 {
+        font-size: 0.92rem;
+    }
+
+    .timeline-card p {
+        font-size: 0.8rem;
+    }
+
+    /* Donation page */
+    .donation-hero {
+        padding: 30px 18px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 25px;
+    }
+
+    .donation-hero .total-label {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .donation-hero #grand-total {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .donation-summary-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .don-stat-item {
+        padding: 12px 8px;
+        border-radius: 10px;
+    }
+
+    .don-stat-icon {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+
+    .don-stat-num {
+        font-size: clamp(0.85rem, 3vw, 1.2rem);
+    }
+
+    .don-stat-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.5px;
+    }
+
+    .donation-col {
+        border-radius: var(--radius-sm);
+    }
+
+    .col-header {
+        padding: 15px 18px;
+    }
+
+    .col-header .col-title {
+        font-size: 0.9rem;
+    }
+
+    .col-header .col-count {
+        font-size: 0.72rem;
+        padding: 2px 10px;
+    }
+
+    .member-item {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .member-name {
+        font-size: 0.82rem;
+    }
+
+    .amount-text {
+        font-size: 0.82rem;
+    }
+
+    .col-footer-inner {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .col-footer-label {
+        font-size: 0.75rem;
+    }
+
+    .col-footer-amount {
+        font-size: 1rem;
+    }
+
+    /* Gallery */
+    .masonry-gallery {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .gallery-item {
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    .gallery-item img {
+        border-radius: 10px;
+    }
+
+    .gallery-overlay {
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .gallery-overlay-text {
+        font-size: 0.75rem;
+    }
+
+    /* Lightbox */
+    .lightbox img {
+        max-width: 95vw;
+        max-height: 70vh;
+        border-radius: 10px;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 15px;
+        font-size: 2rem;
+    }
+
+    .lightbox-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    /* Members */
+    .members-search-wrap {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .members-search-wrap input {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 11px 18px;
+    }
+
+    .gender-filter {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .g-btn {
+        padding: 8px 16px;
         font-size: 0.78rem;
-        padding: 8px 14px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .member-card {
+        height: 260px;
+    }
+
+    .member-card-inner {
+        border-radius: var(--radius-sm);
+    }
+
+    .card-front,
+    .card-back {
+        border-radius: var(--radius-sm);
+        padding: 18px 12px;
+    }
+
+    .member-photo-wrap {
+        width: 75px;
+        height: 75px;
+        margin-bottom: 10px;
+    }
+
+    .member-full-name {
+        font-size: 0.82rem;
+    }
+
+    .member-gender-badge {
+        font-size: 0.65rem;
+        padding: 2px 10px;
+    }
+
+    .member-donation-preview {
+        font-size: 0.75rem;
+        margin-top: 6px;
+    }
+
+    .card-back .back-icon {
+        font-size: 2rem;
+    }
+
+    .card-back .back-name {
+        font-size: 0.92rem;
+    }
+
+    .back-contributed {
+        padding: 6px 12px;
+    }
+
+    .back-contributed .amount {
+        font-size: 1rem;
+    }
+
+    /* Intro extras */
+    .intro-photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 150px 150px 150px;
+        gap: 8px;
+    }
+
+    .intro-showcase {
+        height: 120px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Motto */
+    .motto-section {
+        padding: 40px 25px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 30px 15px;
+    }
+
+    .site-footer .footer-title {
+        font-size: 1.1rem;
+    }
+
+    .site-footer p {
+        font-size: 0.78rem;
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+        max-width: 100%;
+    }
+
+    .progress-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 380px) {
+    .hero-stats {
+        gap: 8px;
+    }
+
+    .hero-stat .num {
+        font-size: 1.2rem;
+    }
+
+    .hero-stat .lbl {
+        font-size: 0.6rem;
+    }
+
+    .tab-btn {
+        font-size: 0.7rem;
+        padding: 7px 10px;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .member-card {
+        height: 240px;
+    }
+
+    .stats-grid {
+        gap: 8px;
+    }
+
+    .donation-summary-stats {
+        gap: 8px;
+    }
+
+    .don-stat-num {
+        font-size: 0.8rem;
+    }
+
+    .masonry-gallery {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    .gallery-item {
+        margin-bottom: 12px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .member-card:hover .member-card-inner {
+        transform: none;
+    }
+
+    .member-card.flipped .member-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .gallery-item:hover {
+        transform: none;
+    }
+
+    .gallery-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 50%);
+    }
+
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .timeline-card:hover {
+        transform: none;
+    }
+
+    .about-card:hover {
+        transform: none;
+    }
+}
+
+/* Safe area for notched devices */
+@supports (padding: max(0px)) {
+    .nav-sticky {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .site-footer {
+        padding-bottom: max(30px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .site-header {
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .hero-photo-orbit {
+        display: none;
+    }
+
+    .hero-stats {
+        margin-top: 10px;
+    }
+
+    .scroll-down {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 15px;
     }
 }

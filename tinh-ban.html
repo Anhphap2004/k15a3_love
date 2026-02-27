@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>K15A3 — Tình Bạn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/memory/cohuong.jpg" alt="K15A3">
+      <span>K15A3</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="active">Góc Ảnh ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="ky-niem.html">Kỷ Niệm</a></li>
+          <li><a href="tot-nghiep.html">Tốt Nghiệp</a></li>
+          <li><a href="hoc-tap.html">Học Tập</a></li>
+          <li><a href="le-hoi.html">Lễ Hội</a></li>
+          <li><a href="tinh-ban.html" class="active">Tình Bạn</a></li>
+        </ul>
+      </li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="thanh-vien.html">Thành Viên</a></li>
+      <li><a href="quyen-gop.html">Quyên Góp</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<section class="page-banner">
+  <span class="badge">💕 Tình Bạn</span>
+  <h1>Tình Bạn K15A3</h1>
+  <p>Những khoảnh khắc yêu thương, gắn bó giữa các thành viên K15A3.</p>
+</section>
+
+<!-- GALLERY -->
+<div class="container">
+  <div class="section-header fade-in">
+    <span class="section-label">Gallery</span>
+    <h2 class="section-title">Tình Bạn Đẹp Nhất</h2>
+    <p class="section-desc">Bấm vào ảnh để xem đầy đủ</p>
+  </div>
+  <div class="photo-grid" id="loveGrid"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-cap" id="lb-cap"></div>
+  <div class="lightbox-counter" id="lb-counter"></div>
+  <div class="lightbox-nav">
+    <button class="lightbox-btn" onclick="lightboxPrev()">◀</button>
+    <button class="lightbox-btn" onclick="lightboxNext()">▶</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-title">K15A3 — Tuổi Học Trò</div>
+  <p>Khoá 2019 — 2022 · THPT Hương Sử</p>
+  <p>Made with <span class="heart-beat">❤️</span> by K15A3</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  buildPhotoGrid('loveGrid', LOVE_PHOTOS);
+});
+</script>
+</body>
+</html>

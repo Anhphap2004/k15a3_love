@@ -1,337 +1,347 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K15A3 - Đàn Em Hương Sử | Tuổi Học Trò</title>
-    <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico"">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>K15A3 — Tuổi Học Trò</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Floating Particles -->
-<canvas id="particles-canvas"></canvas>
-
-<!-- HERO HEADER -->
-<header class="site-header">
-    <div class="header-bg-anim"></div>
-
-    <div class="badge-top">✦ KHOÁ 2019 - 2022 ✦</div>
-
-    <div class="hero-logo">
-        <img src="images/cohuong1.jpg"
-             alt="K15A3" onerror="this.style.display='none'">
-    </div>
-
-    <h1 class="hero-title">K15A3</h1>
-    <p class="hero-subtitle">Đàn Em Hương Sử — Mãi Mãi Trong Tim</p>
-
-    <!-- Floating photo collage in hero -->
-    <div class="hero-photo-orbit" id="heroOrbit"></div>
-
-    <div class="hero-teacher">
-        <span class="icon">👩‍🏫</span>
-        Giáo viên chủ nhiệm: <strong>Cô Hương</strong>
-    </div>
-
-    <div class="hero-stats">
-        <div class="hero-stat">
-            <span class="num">42</span>
-            <span class="lbl">Thành Viên</span>
-        </div>
-        <div class="hero-stat">
-            <span class="num">3</span>
-            <span class="lbl">Năm Học</span>
-        </div>
-        <div class="hero-stat">
-            <span class="num">∞</span>
-            <span class="lbl">Kỷ Niệm</span>
-        </div>
-        <div class="hero-stat">
-            <span class="num">1</span>
-            <span class="lbl">Trái Tim</span>
-        </div>
-    </div>
-
-    <div class="scroll-down" onclick="scrollToContent()">
-        <span>KHÁM PHÁ</span>
-        <div class="arrow"></div>
-    </div>
-</header>
-
-<!-- NAVIGATION -->
-<nav class="nav-sticky">
-    <div class="nav-inner">
-        <button class="tab-btn" data-tab="intro" onclick="switchTab('intro')">
-            <span class="tab-icon">🏫</span> Giới Thiệu Lớp
-        </button>
-        <button class="tab-btn" data-tab="donation" onclick="switchTab('donation')">
-            <span class="tab-icon">💰</span> Quyên Góp
-        </button>
-        <button class="tab-btn" data-tab="gallery" onclick="switchTab('gallery')">
-            <span class="tab-icon">📸</span> Kỷ Niệm
-        </button>
-        <button class="tab-btn" data-tab="members" onclick="switchTab('members')">
-            <span class="tab-icon">👥</span> Thành Viên
-        </button>
-    </div>
+<!-- ======== NAVBAR ======== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/memory/cohuong.jpg" alt="K15A3">
+      <span>K15A3</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">Trang Chủ</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Góc Ảnh ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="ky-niem.html">Kỷ Niệm</a></li>
+          <li><a href="tot-nghiep.html">Tốt Nghiệp</a></li>
+          <li><a href="hoc-tap.html">Học Tập</a></li>
+          <li><a href="le-hoi.html">Lễ Hội</a></li>
+          <li><a href="tinh-ban.html">Tình Bạn</a></li>
+        </ul>
+      </li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="thanh-vien.html">Thành Viên</a></li>
+      <li><a href="quyen-gop.html">Quyên Góp</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- PAGE 1: GIỚI THIỆU LỚP -->
-<section id="intro" class="page-section active">
-
-
-    <div class="section-header">
-        <div class="section-label">✦ TỔNG QUAN ✦</div>
-        <h2 class="section-title">Lớp K15A3 — Đàn Em Hương Sử</h2>
-        <p class="section-desc">
-            Lớp K15A3 là một tập thể đoàn kết, gắn bó dưới sự dìu dắt tận tình của Cô Hương.
-            Những năm tháng học trò sẽ mãi là ký ức đẹp nhất trong cuộc đời mỗi thành viên.
-        </p>
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-card fade-in-up">
-            <span class="stat-icon">👩‍🎓</span>
-            <span class="stat-num" data-count="29">0</span>
-            <span class="stat-name">Nữ sinh</span>
-        </div>
-        <div class="stat-card fade-in-up">
-            <span class="stat-icon">👨‍🎓</span>
-            <span class="stat-num" data-count="13">0</span>
-            <span class="stat-name">Nam sinh</span>
-        </div>
-        <div class="stat-card fade-in-up">
-            <span class="stat-icon">📅</span>
-            <span class="stat-num" data-count="3">0</span>
-            <span class="stat-name">Năm học</span>
-        </div>
-        <div class="stat-card fade-in-up">
-            <span class="stat-icon">🏆</span>
-            <span class="stat-num" data-count="42">0</span>
-            <span class="stat-name">Thành viên</span>
-        </div>
-    </div>
-
-    <div class="about-grid">
-        <div class="about-card fade-in-up">
-            <h3>📋 Thông Tin Lớp</h3>
-            <div class="info-row">
-                <span class="key">Tên lớp</span>
-                <span class="val">K15A3</span>
-            </div>
-            <div class="info-row">
-                <span class="key">Khoá học</span>
-                <span class="val">2019 – 2022</span>
-            </div>
-            <div class="info-row">
-                <span class="key">Sĩ số</span>
-                <span class="val">42 học sinh</span>
-            </div>
-            <div class="info-row">
-                <span class="key">Biệt danh</span>
-                <span class="val">Đàn em Hương Sử</span>
-            </div>
-            <div class="info-row">
-                <span class="key">Tinh thần</span>
-                <span class="val">Đoàn kết – Yêu thương</span>
-            </div>
-            <div class="info-row">
-                <span class="key">Màu sắc</span>
-                <span class="val">Đỏ Vàng – Tự hào</span>
-            </div>
-        </div>
-
-        <div class="teacher-card fade-in-up">
-            <div class="teacher-avatar">
-                <img src="photos k15a3/cohuong.jpg" alt="Cô Hương" onerror="this.parentElement.textContent='👩‍🏫'">
-            </div>
-            <h3>Cô Hương</h3>
-            <p>Giáo viên chủ nhiệm kính yêu</p>
-            <p style="margin-top:10px; opacity:0.8; font-size:0.9rem; position:relative;z-index:1">
-                Người thầy, người mẹ thứ hai đã dẫn dắt và nuôi dưỡng tâm hồn của 42 đứa con trong suốt những năm tháng học trò đáng nhớ nhất.
-            </p>
-            <div class="teacher-badge">✦ NGƯỜI DẪN ĐƯỜNG ✦</div>
-        </div>
-    </div>
-
-    <div class="section-header" style="margin-top:60px;margin-bottom:40px;">
-        <div class="section-label">✦ CÁC MỐC ĐÁNG NHỚ ✦</div>
-        <h2 class="section-title">Hành Trình K15A3</h2>
-    </div>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-                <div class="year">05 THÁNG 09 / 2019</div>
-                <h4>🎒 Ngày Khai Giảng</h4>
-                <p>42 tân học sinh bước vào ngôi trường với bao bỡ ngỡ và háo hức.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-                <div class="year">NĂM HỌC 2019</div>
-                <h4>🌟 Năm Học Đầy Kỷ Niệm</h4>
-                <p>Những tiết học thú vị, giờ ra chơi sôi nổi, và tình bạn ngày càng thêm gắn kết. Lớp K15A3 bắt đầu hình thành nét riêng của mình.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-                <div class="year">NĂM 2020</div>
-                <h4>🏃 Hoạt Động Ngoại Khoá</h4>
-                <p>Những buổi dã ngoại, hội thi văn nghệ, thể thao cùng nhau tạo nên những kỷ niệm không thể nào quên cho cả lớp.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-                <div class="year">THÁNG 5 / 2022</div>
-                <h4>🎓 Ngày Tốt Nghiệp</h4>
-                <p>Khoảnh khắc xúc động nhất — lễ tốt nghiệp với bao nước mắt và nụ cười. Chia tay mái trường nhưng tình K15A3 mãi không phai.</p>
-            </div>
-        </div>
-    </div>
-
-
-
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div id="heroOrbit" class="hero-orbit"></div>
+  <div class="hero-badge">Khoá 2019 — 2022</div>
+  <div class="hero-logo">
+    <img src="images/memory/cohuong.jpg" alt="K15A3 Logo">
+  </div>
+  <h1 class="hero-title">K15A3</h1>
+  <p class="hero-subtitle">Mái trường — Thầy cô — Bạn bè</p>
+  <p class="hero-school">THPT Nghi Lộc 5</p>
+  <div class="hero-teacher-badge">
+    👩‍🏫 <span>GVCN: <strong>Cô Hương</strong></span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num" data-count="29">0</span><span class="lbl">Nữ sinh</span></div>
+    <div class="hero-stat"><span class="num" data-count="13">0</span><span class="lbl">Nam sinh</span></div>
+    <div class="hero-stat"><span class="num" data-count="3">0</span><span class="lbl">Năm gắn bó</span></div>
+    <div class="hero-stat"><span class="num" data-count="42">0</span><span class="lbl">Thành viên</span></div>
+  </div>
+  <div class="hero-cta-group">
+    <a href="thanh-vien.html" class="hero-cta">👥 Thành Viên</a>
+    <a href="ky-niem.html" class="hero-cta hero-cta-outline">📸 Xem Ảnh</a>
+  </div>
+  <div class="hero-scroll" onclick="scrollToContent()">
+    <span>KHÁM PHÁ</span>
+    <div class="arrow"></div>
+  </div>
 </section>
 
-<!-- PAGE 2: QUYÊN GÓP -->
-<section id="donation" class="page-section">
-
-    <div class="section-header">
-        <div class="section-label">✦ QUỸ LỚP ✦</div>
-        <h2 class="section-title">Hoạt Động Quyên Góp</h2>
-        <p class="section-desc">
-            Mỗi đóng góp dù lớn hay nhỏ đều là tấm lòng yêu thương gửi đến tập thể lớp.
-            Cùng chung tay xây dựng quỹ kỷ niệm K15A3!
-        </p>
+<!-- ======== ANNOUNCEMENT BANNER ======== -->
+<div class="announce-banner fade-in">
+  <div class="announce-inner">
+    <span class="announce-icon">🎉</span>
+    <div class="announce-text">
+      <strong>Kỷ niệm 20 năm thành lập THPT Nghi Lộc 5 (2006–2026)</strong>
+      <span>Chung tay đóng góp để tri ân thầy cô và mái trường!</span>
     </div>
-
-    <div class="donation-hero">
-        <div class="total-label">🏦 TỔNG NGÂN QUỸ THU ĐƯỢC</div>
-        <span id="grand-total">0đ</span>
-        <div class="progress-bar-wrap">
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill"></div>
-            </div>
-            <div class="progress-label">
-                <span class="progress-pct">0%</span>
-                <span class="progress-goal">Mục tiêu: 15.000.000đ</span>
-            </div>
-        </div>
-
-        <div class="donation-summary-stats">
-            <div class="don-stat-item">
-                <span class="don-stat-icon">👥</span>
-                <span class="don-stat-num" id="donor-count">0</span>
-                <span class="don-stat-label">Người đã góp</span>
-            </div>
-            <div class="don-stat-item">
-                <span class="don-stat-icon">🌺</span>
-                <span class="don-stat-num" id="female-total">0đ</span>
-                <span class="don-stat-label">Hội Chị Em</span>
-            </div>
-            <div class="don-stat-item">
-                <span class="don-stat-icon">🛡️</span>
-                <span class="don-stat-num" id="male-total">0đ</span>
-                <span class="don-stat-label">Hội Thanh Niên</span>
-            </div>
-            <div class="don-stat-item">
-                <span class="don-stat-icon">📊</span>
-                <span class="don-stat-num" id="avg-donation">0đ</span>
-                <span class="don-stat-label">Trung bình/người</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="donation-grid">
-        <div class="donation-col">
-            <div class="col-header female">
-                <span class="col-title">🌺 Hội Chị Em</span>
-                <span class="col-count">29 thành viên</span>
-            </div>
-            <div class="member-list-wrap" id="don-list-female"></div>
-            <div class="col-footer" id="col-footer-female"></div>
-        </div>
-        <div class="donation-col">
-            <div class="col-header male">
-                <span class="col-title">🛡️ Hội Thanh Niên</span>
-                <span class="col-count">13 thành viên</span>
-            </div>
-            <div class="member-list-wrap" id="don-list-male"></div>
-            <div class="col-footer" id="col-footer-male"></div>
-        </div>
-    </div>
-
-</section>
-
-<!-- PAGE 3: KỶ NIỆM -->
-<section id="gallery" class="page-section">
-
-    <div class="section-header">
-        <div class="section-label">✦ GÓC KỶ NIỆM ✦</div>
-        <h2 class="section-title">Những Khoảnh Khắc Đáng Nhớ</h2>
-        <p class="section-desc">
-            Mỗi bức ảnh là một mảnh ký ức, một nụ cười, một câu chuyện riêng của K15A3.
-            Nhấp vào ảnh để xem chi tiết.
-        </p>
-    </div>
-
-    <div class="masonry-gallery"></div>
-
-</section>
-
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img id="lb-img" src="" alt="">
-    <div id="lb-cap" style="color:rgba(255,255,255,0.8);font-size:0.9rem;margin-top:12px;text-align:center;"></div>
-    <div class="lightbox-nav">
-        <button class="lightbox-btn" onclick="lightboxPrev()">&#8592;</button>
-        <button class="lightbox-btn" onclick="lightboxNext()">&#8594;</button>
-    </div>
-    <div id="lb-counter" class="lightbox-counter"></div>
+    <a href="quyen-gop.html" class="announce-btn">Quyên Góp →</a>
+  </div>
 </div>
 
-<!-- PAGE 4: THÀNH VIÊN -->
-<section id="members" class="page-section">
+<!-- ======== CONTENT ======== -->
+<div class="container">
 
-    <div class="section-header">
-        <div class="section-label">✦ TẬP THỂ ✦</div>
-        <h2 class="section-title">Các Thành Viên K15A3</h2>
-        <p class="section-desc">
-            42 gương mặt — 42 câu chuyện — 1 trái tim K15A3.
-            Di chuột vào thẻ để lật và xem thông tin chi tiết.
-        </p>
+  <!-- Intro -->
+  <div class="section-header fade-in" style="margin-top:40px">
+    <span class="section-label">Giới thiệu</span>
+    <h2 class="section-title">Lớp K15A3 — Tuổi Học Trò</h2>
+    <p class="section-desc">Ba năm THPT, 42 thành viên cùng nhau trải qua bao kỷ niệm đẹp dưới mái trường Nghi Lộc 5 và sự dẫn dắt của cô Hương.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid fade-in">
+    <div class="stat-card">
+      <span class="stat-icon">🌺</span>
+      <span class="stat-num" data-count="29">0</span>
+      <span class="stat-name">Nữ sinh</span>
     </div>
-
-    <div class="members-search-wrap">
-        <input type="text" placeholder="🔍 Tìm kiếm thành viên..." oninput="searchMembers(this.value)">
-        <div class="gender-filter">
-            <button class="g-btn active" data-gender="all" onclick="filterGender('all')">Tất cả</button>
-            <button class="g-btn female" data-gender="female" onclick="filterGender('female')">🌺 Nữ</button>
-            <button class="g-btn male" data-gender="male" onclick="filterGender('male')">🛡️ Nam</button>
-        </div>
+    <div class="stat-card">
+      <span class="stat-icon">🛡️</span>
+      <span class="stat-num" data-count="13">0</span>
+      <span class="stat-name">Nam sinh</span>
     </div>
+    <div class="stat-card">
+      <span class="stat-icon">📚</span>
+      <span class="stat-num" data-count="3">0</span>
+      <span class="stat-name">Năm học</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">👥</span>
+      <span class="stat-num" data-count="42">0</span>
+      <span class="stat-name">Thành viên</span>
+    </div>
+  </div>
 
-    <div class="members-grid"></div>
+  <!-- About + Teacher -->
+  <div class="about-grid">
+    <div class="about-card fade-in">
+      <h3>📖 Thông Tin Lớp</h3>
+      <div class="info-row"><span class="key">Lớp</span><span class="val">K15A3</span></div>
+      <div class="info-row"><span class="key">Trường</span><span class="val">THPT Nghi Lộc 5</span></div>
+      <div class="info-row"><span class="key">Khoá</span><span class="val">2019 — 2022</span></div>
+      <div class="info-row"><span class="key">GVCN</span><span class="val">Cô Hương</span></div>
+      <div class="info-row"><span class="key">Sĩ số</span><span class="val">42 thành viên</span></div>
+      <div class="info-row"><span class="key">Nữ / Nam</span><span class="val">29 / 13</span></div>
+    </div>
+    <div class="teacher-card fade-in">
+      <div class="teacher-avatar">
+        <img src="images/memory/cohuong.jpg" alt="Cô Hương">
+      </div>
+      <h3>Cô Hương</h3>
+      <p>Giáo viên chủ nhiệm</p>
+      <div class="teacher-badge">👩‍🏫 Người dẫn dắt K15A3</div>
+      <p style="margin-top:14px;font-size:.84rem;line-height:1.7">
+        Cô là người đã đồng hành cùng lớp K15A3 suốt 3 năm THPT,<br>
+        luôn quan tâm và động viên mỗi học sinh.
+      </p>
+    </div>
+  </div>
 
-</section>
+  <!-- Photo Showcase -->
+  <div class="section-header fade-in">
+    <span class="section-label">Khoảnh khắc</span>
+    <h2 class="section-title">Ảnh Nổi Bật</h2>
+    <p class="section-desc">Một vài khoảnh khắc đáng nhớ nhất từ bộ sưu tập ảnh K15A3</p>
+  </div>
+  <div class="showcase-grid fade-in" id="showcaseGrid"></div>
+  <div style="text-align:center;margin-top:22px" class="fade-in">
+    <a href="ky-niem.html" class="btn-view-all">Xem tất cả ảnh →</a>
+  </div>
 
-<!-- FOOTER -->
+  <!-- Timeline -->
+  <div class="section-header fade-in">
+    <span class="section-label">Dấu ấn</span>
+    <h2 class="section-title">Hành Trình K15A3</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">09 / 2019</div>
+        <h4>Ngày Khai Giảng</h4>
+        <p>42 thành viên lần đầu tiên gặp nhau tại lớp K15A3, bắt đầu hành trình 3 năm THPT.</p>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">2019 — 2020</div>
+        <h4>Năm Học Đầu Tiên</h4>
+        <p>Cùng nhau học tập, vui chơi, thi đua và gắn kết tình bạn.</p>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">2020 — 2021</div>
+        <h4>Hoạt Động Ngoại Khoá</h4>
+        <p>Tham gia nhiều hoạt động, sự kiện phong trào, lễ hội của trường.</p>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">2021 — 2022</div>
+        <h4>Năm Cuối Cấp</h4>
+        <p>Nỗ lực ôn thi, cùng nhau vượt qua kỳ thi tốt nghiệp THPT Quốc gia.</p>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">06 / 2022</div>
+        <h4>Ngày Tốt Nghiệp</h4>
+        <p>Chia tay mái trường, hẹn ngày gặp lại — K15A3 mãi trong tim. 🎓</p>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="year">2026</div>
+        <h4>Hội Ngộ & 20 Năm Trường</h4>
+        <p>Gặp lại nhau nhân dịp kỷ niệm 20 năm thành lập THPT Nghi Lộc 5. Chung tay đóng góp, tri ân thầy cô!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="section-header fade-in">
+    <span class="section-label">Khám phá</span>
+    <h2 class="section-title">Góc Kỷ Niệm</h2>
+  </div>
+  <div class="quick-links fade-in">
+    <a href="ky-niem.html" class="qlink-card">
+      <div class="qlink-icon">📸</div>
+      <div class="qlink-info">
+        <h4>Ảnh Kỷ Niệm</h4>
+        <p>Hàng trăm bức ảnh lưu giữ khoảnh khắc đáng nhớ</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="tot-nghiep.html" class="qlink-card">
+      <div class="qlink-icon">🎓</div>
+      <div class="qlink-info">
+        <h4>Tốt Nghiệp</h4>
+        <p>Ngày chia tay mái trường THPT Nghi Lộc 5</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="hoc-tap.html" class="qlink-card">
+      <div class="qlink-icon">📚</div>
+      <div class="qlink-info">
+        <h4>Học Tập</h4>
+        <p>Những buổi học và hoạt động trên lớp</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="le-hoi.html" class="qlink-card">
+      <div class="qlink-icon">🎉</div>
+      <div class="qlink-info">
+        <h4>Lễ Hội</h4>
+        <p>Tết Nguyên Đán 2024 & 2026 bên thầy cô</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="tinh-ban.html" class="qlink-card">
+      <div class="qlink-icon">💕</div>
+      <div class="qlink-info">
+        <h4>Tình Bạn</h4>
+        <p>Những khoảnh khắc yêu thương gắn bó</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="video.html" class="qlink-card">
+      <div class="qlink-icon">🎬</div>
+      <div class="qlink-info">
+        <h4>Video</h4>
+        <p>Kho video kỷ niệm đầy cảm xúc</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="thanh-vien.html" class="qlink-card">
+      <div class="qlink-icon">👥</div>
+      <div class="qlink-info">
+        <h4>Thành Viên</h4>
+        <p>42 thành viên — 29 nữ & 13 nam</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+    <a href="quyen-gop.html" class="qlink-card qlink-highlight">
+      <div class="qlink-icon">💝</div>
+      <div class="qlink-info">
+        <h4>Quyên Góp</h4>
+        <p>Chung tay đóng góp cho quỹ lớp & trường</p>
+      </div>
+      <span class="qlink-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- Quote -->
+  <div class="quote-section fade-in">
+    <blockquote>
+      <p>"Thanh xuân là khoảng thời gian mà dù có trải qua bao nhiêu năm, mỗi khi nhớ lại vẫn thấy lòng ấm áp."</p>
+      <cite>— K15A3, mãi mãi tuổi học trò —</cite>
+    </blockquote>
+  </div>
+
+</div>
+
+<!-- ======== FOOTER ======== -->
 <footer class="site-footer">
-    <div class="footer-title">K15A3 — Đàn Em Hương Sử</div>
-    <p>Được làm ra với <span class="heart-beat">♥</span> bởi những người yêu quý lớp K15A3</p>
-    <p style="margin-top:8px;font-size:0.78rem;opacity:0.6;">Khoá 2019 – 2022 · Mái trường yêu dấu · Ký ức mãi xanh</p>
+  <div class="footer-title">K15A3 — Tuổi Học Trò</div>
+  <p>Khoá 2019 — 2022 · THPT Hương Sử</p>
+  <p>Made with <span class="heart-beat">❤️</span> by AnhhPhapp</p>
 </footer>
 
-<script src="./main.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroOrbit();
+  initHeroParticles();
+
+  // Photo showcase — pick 8 random photos from MEMORY_PHOTOS
+  if (typeof MEMORY_PHOTOS !== 'undefined') {
+    const grid = document.getElementById('showcaseGrid');
+    if (grid) {
+      const shuffled = [...MEMORY_PHOTOS].sort(() => Math.random() - 0.5).slice(0, 8);
+      shuffled.forEach((photo, i) => {
+        const card = document.createElement('div');
+        card.className = 'showcase-item fade-in';
+        card.innerHTML = `<img src="${photo.src}" alt="${photo.cap}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+        grid.appendChild(card);
+      });
+      setTimeout(initFadeObserver, 200);
+    }
+  }
+
+  // Animate counters when visible
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounters(); io.disconnect(); }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.stats-grid').forEach(el => io.observe(el));
+});
+
+// Hero particles
+function initHeroParticles() {
+  const wrap = document.getElementById('heroParticles');
+  if (!wrap) return;
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;
+      animation-duration:${4+Math.random()*6}s;
+      animation-delay:${Math.random()*4}s;
+      opacity:${0.2+Math.random()*0.5};
+    `;
+    wrap.appendChild(p);
+  }
+}
+</script>
 </body>
 </html>

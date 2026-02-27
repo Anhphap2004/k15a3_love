@@ -149,7 +149,7 @@ const DONATION_MEMBERS = {
     // { name: 'Nguyễn Thị Hồng', amount: 0 },
     // { name: 'Võ Thị Mùi', amount: 0 },
     // { name: 'Trương Ngọc Nhi', amount: 0 },
-    // { name: 'Phan Yến Nhi', amount: 0 },
+    { name: 'Phan Yến Nhi', amount: 200000 },
     // { name: 'Đào Hải Uyên', amount: 0 },
     // { name: 'Út Trà', amount: 0 },
     // { name: 'Nguyễn Thương', amount: 0 },

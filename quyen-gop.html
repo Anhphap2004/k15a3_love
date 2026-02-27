@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>K15A3 — Quyên Góp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/memory/cohuong.jpg" alt="K15A3">
+      <span>K15A3</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Góc Ảnh ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="ky-niem.html">Kỷ Niệm</a></li>
+          <li><a href="tot-nghiep.html">Tốt Nghiệp</a></li>
+          <li><a href="hoc-tap.html">Học Tập</a></li>
+          <li><a href="le-hoi.html">Lễ Hội</a></li>
+          <li><a href="tinh-ban.html">Tình Bạn</a></li>
+        </ul>
+      </li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="thanh-vien.html">Thành Viên</a></li>
+      <li><a href="quyen-gop.html" class="active">Quyên Góp</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<section class="page-banner">
+  <span class="badge">Quỹ Ủng Hộ</span>
+  <h1>Quyên Góp K15A3</h1>
+  <p>Chung tay đóng góp  — vì mái trường thân yêu và tình bạn bền vững.</p>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- Thông báo đóng góp -->
+  <div class="donation-cta fade-in">
+    <div class="cta-header">
+      <span class="cta-icon">📣</span>
+      <h2>Thông Báo Đóng Góp</h2>
+      <p class="cta-subtitle">Hướng tới Đại lễ kỷ niệm <strong>20 năm thành lập Trường THPT Nghi Lộc 5</strong> (2006–2026)</p>
+    </div>
+    <div class="cta-body">
+      <div class="cta-text">
+        <p>Các bạn thân mến,</p>
+        <p>Lớp mình kêu gọi các bạn cùng <strong>chung tay đóng góp</strong> để tri ân thầy cô và góp phần vào hoạt động chung của Nhà trường.</p>
+        <p class="cta-note">💖 Đóng góp hoàn toàn <strong>tự nguyện</strong>, tùy điều kiện mỗi bạn.</p>
+        <div class="bank-info">
+          <h3>Thông tin chuyển khoản</h3>
+          <div class="bank-row"><span class="bank-label">🏦 Ngân hàng</span><span class="bank-val">Techcombank</span></div>
+          <div class="bank-row"><span class="bank-label">💳 Số tài khoản</span><span class="bank-val bank-stk">6078886688</span></div>
+          <div class="bank-row"><span class="bank-label">👤 Chủ TK</span><span class="bank-val">ĐẶNG VIỆT ĐỨC</span></div>
+          <div class="bank-row"><span class="bank-label">📝 Nội dung CK</span><span class="bank-val">K15A3 [Họ Tên]</span></div>
+        </div>
+      </div>
+      <div class="cta-qr">
+        <img src="https://img.vietqr.io/image/TCB-6078886688-compact2.png?amount=0&addInfo=K15A3&accountName=DANG%20VIET%20DUC" alt="QR Chuyển khoản Techcombank" loading="lazy">
+        <span class="qr-caption">Quét QR để chuyển khoản</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grand Total Hero -->
+  <div class="donation-hero fade-in">
+    <div class="total-label">TỔNG QUYÊN GÓP</div>
+    <span class="grand-total" id="grand-total">0đ</span>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill"></div>
+      </div>
+      <div class="progress-label">
+        <span class="progress-pct">0%</span>
+        <span>Mục tiêu: 15,000,000đ</span>
+      </div>
+    </div>
+    <div class="donation-summary">
+      <div class="don-stat">
+        <span class="icon">🤝</span>
+        <span class="num" id="donor-count">0</span>
+        <span class="lbl">Đã góp</span>
+      </div>
+      <div class="don-stat">
+        <span class="icon">🌺</span>
+        <span class="num" id="female-total">0đ</span>
+        <span class="lbl">Nữ</span>
+      </div>
+      <div class="don-stat">
+        <span class="icon">🛡️</span>
+        <span class="num" id="male-total">0đ</span>
+        <span class="lbl">Nam</span>
+      </div>
+      <div class="don-stat">
+        <span class="icon">📊</span>
+        <span class="num" id="avg-donation">0đ</span>
+        <span class="lbl">TB / người</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Lists -->
+  <div class="donation-grid fade-in">
+    <!-- Female -->
+    <div class="donation-col">
+      <div class="col-header female">
+        <span class="col-title">🌺 Nữ Sinh</span>
+        <span class="col-count">29</span>
+      </div>
+      <div class="member-list-wrap" id="don-list-female"></div>
+      <div class="col-footer" id="col-footer-female"></div>
+    </div>
+    <!-- Male -->
+    <div class="donation-col">
+      <div class="col-header male">
+        <span class="col-title">🛡️ Nam Sinh</span>
+        <span class="col-count">13</span>
+      </div>
+      <div class="member-list-wrap" id="don-list-male"></div>
+      <div class="col-footer" id="col-footer-male"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-cap" id="lb-cap"></div>
+  <div class="lightbox-counter" id="lb-counter"></div>
+  <div class="lightbox-nav">
+    <button class="lightbox-btn" onclick="lightboxPrev()">◀</button>
+    <button class="lightbox-btn" onclick="lightboxNext()">▶</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-title">K15A3 — Tuổi Học Trò</div>
+  <p>Khoá 2019 — 2022 · THPT Hương Sử</p>
+  <p>Made with <span class="heart-beat">❤️</span> by K15A3</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded', initDonation);</script>
+</body>
+</html>

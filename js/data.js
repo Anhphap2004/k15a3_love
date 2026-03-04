@@ -173,7 +173,7 @@ const DONATION_MEMBERS = {
     { name: 'Nguyễn Đình Thành', amount: 200000 },
     { name: 'Nguyễn Minh Quân', amount: 100000 },
 
-    // { name: 'Đặng Việt Đức', amount: 0 },
+    { name: 'Đặng Việt Đức', amount: 1000000 },
     // { name: 'Lê Quang Huy', amount: 0 },
     // { name: 'Nguyễn Công Nhất', amount: 0 },
     // { name: 'Nguyễn Đình Mạnh', amount: 0 },

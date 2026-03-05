@@ -127,6 +127,7 @@ const DONATION_PHOTOS = [
   { src: 'images/bill/phanyennhi.jpg', cap: 'Phan Yến Nhi' },
   { src: 'images/bill/tangthilena.jpg', cap: 'Tăng Thị Lê Na' },
   { src: 'images/bill/tranvanluc.jpg', cap: 'Trần Văn Lực' },
+  { src: 'images/bill/nguyenthithuong.jpg', cap: 'Nguyễn Thị Thương' },
 ];
 
 // Dữ liệu quyên góp (đầy đủ tên + số tiền) dùng cho trang quyen-gop.html

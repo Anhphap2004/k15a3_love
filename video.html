@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>K15A3 — Video Kỷ Niệm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico"">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/memory/cohuong.jpg" alt="K15A3">
+      <span>K15A3</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Góc Ảnh ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="ky-niem.html">Kỷ Niệm</a></li>
+          <li><a href="tot-nghiep.html">Tốt Nghiệp</a></li>
+          <li><a href="hoc-tap.html">Học Tập</a></li>
+          <li><a href="le-hoi.html">Lễ Hội</a></li>
+          <li><a href="tinh-ban.html">Tình Bạn</a></li>
+        </ul>
+      </li>
+      <li><a href="video.html" class="active">Video</a></li>
+      <li><a href="thanh-vien.html">Thành Viên</a></li>
+      <li><a href="quyen-gop.html">Quyên Góp</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<section class="page-banner">
+  <span class="badge">🎬 Video</span>
+  <h1>Video Kỷ Niệm</h1>
+  <p>Những video ghi lại khoảnh khắc vui vẻ, đáng nhớ của K15A3.</p>
+</section>
+
+<!-- VIDEO GRID -->
+<div class="container">
+  <div class="section-header fade-in">
+    <span class="section-label">Video</span>
+    <h2 class="section-title">Kho Video K15A3</h2>
+    <p class="section-desc">Bấm nút play để xem video</p>
+  </div>
+  <div class="video-grid" id="videoGrid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-title">K15A3 — Tuổi Học Trò</div>
+  <p>Khoá 2019 — 2022 · THPT Hương Sử</p>
+  <p>Made with <span class="heart-beat">❤️</span> by K15A3</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  buildVideoGrid('videoGrid', VIDEOS);
+});
+</script>
+</body>
+</html>

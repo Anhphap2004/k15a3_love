@@ -57,7 +57,12 @@ function initFadeObserver() {
 function buildPhotoGrid(containerId, photos, gridPhotos) {
   const grid = document.getElementById(containerId);
   if (!grid) return;
+  grid.innerHTML = '';
   const data = gridPhotos || photos;
+  if (!Array.isArray(data) || data.length === 0) {
+    grid.innerHTML = '<p class="empty-media">Chưa có hình ảnh trong chuyên mục này.</p>';
+    return;
+  }
   data.forEach((photo, i) => {
     const card = document.createElement('div');
     card.className = 'photo-card fade-in';
@@ -77,6 +82,11 @@ function buildPhotoGrid(containerId, photos, gridPhotos) {
 function buildVideoGrid(containerId, videos) {
   const grid = document.getElementById(containerId);
   if (!grid) return;
+  grid.innerHTML = '';
+  if (!Array.isArray(videos) || videos.length === 0) {
+    grid.innerHTML = '<p class="empty-media">Chưa có video trong chuyên mục này.</p>';
+    return;
+  }
   videos.forEach((v, i) => {
     const card = document.createElement('div');
     card.className = 'video-card fade-in';
@@ -88,6 +98,85 @@ function buildVideoGrid(containerId, videos) {
     grid.appendChild(card);
   });
   setTimeout(initFadeObserver, 100);
+}
+
+// ---- Dynamic Media API ----
+async function fetchMediaItems(params = {}) {
+  const query = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => {
+    if (v !== undefined && v !== null && String(v).trim() !== '') {
+      query.append(k, v);
+    }
+  });
+
+  const endpoint = `/api/media${query.toString() ? `?${query.toString()}` : ''}`;
+  const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+  if (!response.ok) {
+    throw new Error(`Media API lỗi: ${response.status}`);
+  }
+  const payload = await response.json();
+  return Array.isArray(payload.items) ? payload.items : [];
+}
+
+function mapMediaToPhoto(item) {
+  return {
+    src: item.src,
+    cap: item.caption || item.fileName || 'K15A3'
+  };
+}
+
+function mapMediaToVideo(item) {
+  return {
+    src: item.src,
+    cap: item.caption || item.fileName || 'Video K15A3'
+  };
+}
+
+async function loadPhotoGridDynamic(containerId, options = {}) {
+  const {
+    category,
+    album,
+    fallbackPhotos = [],
+    filter = null,
+    useGridFromFiltered = true
+  } = options;
+
+  try {
+    const items = await fetchMediaItems({ type: 'image', category, album });
+    let photos = items.map(mapMediaToPhoto);
+    if (typeof filter === 'function') {
+      photos = photos.filter(filter);
+    }
+    if (photos.length > 0) {
+      if (useGridFromFiltered) {
+        buildPhotoGrid(containerId, photos);
+      } else {
+        buildPhotoGrid(containerId, items.map(mapMediaToPhoto), photos);
+      }
+      return;
+    }
+  } catch (error) {
+    // Fall back to static data when API is unavailable.
+  }
+
+  buildPhotoGrid(containerId, fallbackPhotos);
+}
+
+async function loadVideoGridDynamic(containerId, options = {}) {
+  const { fallbackVideos = [] } = options;
+
+  try {
+    const items = await fetchMediaItems({ type: 'video', category: 'video' });
+    const videos = items.map(mapMediaToVideo);
+    if (videos.length > 0) {
+      buildVideoGrid(containerId, videos);
+      return;
+    }
+  } catch (error) {
+    // Fall back to static data when API is unavailable.
+  }
+
+  buildVideoGrid(containerId, fallbackVideos);
 }
 
 // ---- Lightbox ----

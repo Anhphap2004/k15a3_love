@@ -1,0 +1,26 @@
+{
+  "name": "k15a3_love",
+  "version": "1.0.0",
+  "description": "K15A3 media website with professional upload and dynamic gallery APIs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anhphap2004/k15a3_love.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Anhphap2004/k15a3_love/issues"
+  },
+  "homepage": "https://github.com/Anhphap2004/k15a3_love#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}

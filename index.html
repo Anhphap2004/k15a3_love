@@ -6,7 +6,7 @@
   <title>K15A3 — Tuổi Học Trò</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico"">
+  <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -34,6 +34,7 @@
       <li><a href="video.html">Video</a></li>
       <li><a href="thanh-vien.html">Thành Viên</a></li>
       <li><a href="quyen-gop.html">Quyên Góp</a></li>
+      <li><a href="admin-upload.html">Upload</a></li>
     </ul>
   </div>
 </nav>
@@ -302,20 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroOrbit();
   initHeroParticles();
 
-  // Photo showcase — pick 8 random photos from MEMORY_PHOTOS
-  if (typeof MEMORY_PHOTOS !== 'undefined') {
-    const grid = document.getElementById('showcaseGrid');
-    if (grid) {
-      const shuffled = [...MEMORY_PHOTOS].sort(() => Math.random() - 0.5).slice(0, 8);
-      shuffled.forEach((photo, i) => {
-        const card = document.createElement('div');
-        card.className = 'showcase-item fade-in';
-        card.innerHTML = `<img src="${photo.src}" alt="${photo.cap}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
-        grid.appendChild(card);
-      });
-      setTimeout(initFadeObserver, 200);
-    }
-  }
+  renderShowcase();
 
   // Animate counters when visible
   const io = new IntersectionObserver((entries) => {
@@ -325,6 +313,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.2 });
   document.querySelectorAll('.stats-grid').forEach(el => io.observe(el));
 });
+
+async function renderShowcase() {
+  const grid = document.getElementById('showcaseGrid');
+  if (!grid) return;
+
+  let photos = [];
+  try {
+    const media = await fetchMediaItems({ type: 'image', category: 'memory' });
+    photos = media.map(mapMediaToPhoto);
+  } catch (e) {
+    photos = typeof MEMORY_PHOTOS !== 'undefined' ? [...MEMORY_PHOTOS] : [];
+  }
+
+  if (!Array.isArray(photos) || photos.length === 0) return;
+  const shuffled = [...photos].sort(() => Math.random() - 0.5).slice(0, 8);
+  shuffled.forEach((photo) => {
+    const card = document.createElement('div');
+    card.className = 'showcase-item fade-in';
+    card.innerHTML = `<img src="${photo.src}" alt="${photo.cap}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+    grid.appendChild(card);
+  });
+  setTimeout(initFadeObserver, 200);
+}
 
 // Hero particles
 function initHeroParticles() {

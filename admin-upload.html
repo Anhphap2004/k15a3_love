@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>K15A3 - Quan tri Upload</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="./images/k15a3.ico">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/memory/cohuong.jpg" alt="K15A3">
+      <span>K15A3</span>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Trang Chu</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Goc Anh ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="ky-niem.html">Ky Niem</a></li>
+          <li><a href="tot-nghiep.html">Tot Nghiep</a></li>
+          <li><a href="hoc-tap.html">Hoc Tap</a></li>
+          <li><a href="le-hoi.html">Le Hoi</a></li>
+          <li><a href="tinh-ban.html">Tinh Ban</a></li>
+        </ul>
+      </li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="thanh-vien.html">Thanh Vien</a></li>
+      <li><a href="quyen-gop.html">Quyen Gop</a></li>
+      <li><a href="admin-upload.html" class="active">Upload</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-banner admin-banner">
+  <span class="badge">He thong Media</span>
+  <h1>Quan tri Upload Anh & Video</h1>
+  <p>Upload chuan hoa vao dung thu muc: images/bill, images/festival, images/member, video...</p>
+</section>
+
+<div class="container admin-container">
+  <div class="admin-grid">
+    <section class="admin-card fade-in">
+      <h2>Upload Media Moi</h2>
+      <p class="admin-muted">He thong giu nguyen tep goc de dam bao chat luong net nhat.</p>
+
+      <form id="uploadForm" class="upload-form">
+        <label>
+          Loai tep
+          <select id="type" name="type" required>
+            <option value="image">Anh</option>
+            <option value="video">Video</option>
+          </select>
+        </label>
+
+        <label>
+          Chuyen muc
+          <select id="category" name="category" required></select>
+        </label>
+
+        <label id="albumWrap">
+          Album (chi dung cho Le Hoi)
+          <input id="album" name="album" type="text" placeholder="Vi du: HappyNewYear2026">
+        </label>
+
+        <label>
+          Mo ta hien thi
+          <input id="caption" name="caption" type="text" placeholder="Vi du: Anh quy go cho su kien 20 nam truong">
+        </label>
+
+        <label>
+          Chon tep
+          <input id="media" name="media" type="file" required>
+        </label>
+
+        <button type="submit" class="hero-cta">Tai len ngay</button>
+      </form>
+
+      <div id="uploadStatus" class="upload-status" aria-live="polite"></div>
+    </section>
+
+    <section class="admin-card fade-in">
+      <h2>Quy tac thu muc</h2>
+      <ul class="rule-list">
+        <li><strong>images/bill</strong>: Bien lai, minh chung ung ho tien bac.</li>
+        <li><strong>images/festival</strong>: Su kien quy gia, nen tach album theo nam.</li>
+        <li><strong>images/member</strong>: Anh dai dien tung thanh vien lop.</li>
+        <li><strong>images/memory</strong>: Ky niem tong hop theo thoi gian.</li>
+        <li><strong>video/</strong>: Toan bo video chat luong cao.</li>
+      </ul>
+
+      <h3 class="admin-subtitle">Media moi nhat</h3>
+      <div id="latestMedia" class="latest-media"></div>
+    </section>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-title">K15A3 - Tuoi Hoc Tro</div>
+  <p>Khoa 2019 - 2022 · THPT Nghi Loc 5</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/admin-upload.js"></script>
+</body>
+</html>

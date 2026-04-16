@@ -129,6 +129,7 @@ const DONATION_PHOTOS = [
   { src: 'images/bill/tranvanluc.jpg', cap: 'Trần Văn Lực' },
   { src: 'images/bill/nguyenthithuong.jpg', cap: 'Nguyễn Thị Thương' },
   { src: 'images/bill/nguyenthithuyhoa.jpg', cap: 'C Hoà' },
+  { src: 'images/bill/nguyendinhmanh.jpg', cap: 'Nguyễn Đình Mạnh' },
 ];
 
 // Dữ liệu quyên góp (đầy đủ tên + số tiền) dùng cho trang quyen-gop.html
@@ -174,7 +175,8 @@ const DONATION_MEMBERS = {
     { name: 'Trần Văn Lực', amount: 200000 },
     { name: 'Nguyễn Đình Thành', amount: 200000 },
     { name: 'Nguyễn Minh Quân', amount: 100000 },
-
+    { name: 'Nguyễn Đình Mạnh', amount: 300000 },
+    
     { name: 'Đặng Việt Đức', amount: 1000000 },
     // { name: 'Lê Quang Huy', amount: 0 },
     // { name: 'Nguyễn Công Nhất', amount: 0 },
@@ -205,6 +207,8 @@ const DONATION_BILL_MAP = {
   'Trần Văn Lực': 'images/bill/tranvanluc.jpg',
   'Nguyễn Thị Thương': 'images/bill/nguyenthithuong.jpg',
   'C Hoà': 'images/bill/nguyenthithuyhoa.jpg',
+  'Nguyễn Đình Mạnh': 'images/bill/nguyendinhmanh.jpg',
+  
 };
 
 const GRADUATION_PHOTOS = [ ];
